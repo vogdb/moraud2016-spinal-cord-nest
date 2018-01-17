@@ -1,4 +1,4 @@
-import spinal_cord.definitions as definitions
+import definitions as definitions
 from spinal_cord.network_items_names import Multimeters
 
 device_params = dict()

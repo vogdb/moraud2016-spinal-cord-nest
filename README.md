@@ -4,4 +4,4 @@ A NEST implementation of an existing [spinal cord model made in Neuron](https://
 
 ### Usage
 
-This project uses a custom NEST model [hh_moto_5ht](https://github.com/research-team/hh-moto-5ht).
+This project was verified on *Python 3.5* and *NEST 2.14.0*. It also uses a custom NEST model [hh_moto_5ht](https://github.com/research-team/hh-moto-5ht).
