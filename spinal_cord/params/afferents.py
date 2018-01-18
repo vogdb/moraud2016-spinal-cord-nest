@@ -1,3 +1,4 @@
+import spinal_cord.stimulation.data_names as stimulation_names
 import spinal_cord.stimulation.afferents.afferents as afferents
 from spinal_cord.network_items_names import Afferents
 
@@ -11,10 +12,10 @@ afferent_params[Afferents.FLEX_1A] = dict(
     n=generator_number_1a,
     params=afferents.AfferentsFile.get_nest_spike_times(
         filepath=afferent_filepath,
-        speed=afferents.Speed.FIFTEEN,
-        interval=afferents.Interval.TWENTY,
-        type=afferents.Types.ONE_A,
-        muscle=afferents.Muscles.FLEX,
+        speed=stimulation_names.Speed.FIFTEEN,
+        interval=stimulation_names.Interval.TWENTY,
+        type=stimulation_names.NeuronTypes.ONE_A,
+        muscle=stimulation_names.Muscles.FLEX,
         number=generator_number_1a,
     ),
 )
@@ -23,10 +24,10 @@ afferent_params[Afferents.EXTENS_1A] = dict(
     n=generator_number_1a,
     params=afferents.AfferentsFile.get_nest_spike_times(
         filepath=afferent_filepath,
-        speed=afferents.Speed.FIFTEEN,
-        interval=afferents.Interval.TWENTY,
-        type=afferents.Types.ONE_A,
-        muscle=afferents.Muscles.EXTENS,
+        speed=stimulation_names.Speed.FIFTEEN,
+        interval=stimulation_names.Interval.TWENTY,
+        type=stimulation_names.NeuronTypes.ONE_A,
+        muscle=stimulation_names.Muscles.EXTENS,
         number=generator_number_1a,
     ),
 )
@@ -37,10 +38,10 @@ afferent_params[Afferents.FLEX_2] = dict(
     n=generator_number_2,
     params=afferents.AfferentsFile.get_nest_spike_times(
         filepath=afferent_filepath,
-        speed=afferents.Speed.FIFTEEN,
-        interval=afferents.Interval.TWENTY,
-        type=afferents.Types.TWO,
-        muscle=afferents.Muscles.FLEX,
+        speed=stimulation_names.Speed.FIFTEEN,
+        interval=stimulation_names.Interval.TWENTY,
+        type=stimulation_names.NeuronTypes.TWO,
+        muscle=stimulation_names.Muscles.FLEX,
         number=generator_number_2,
     ),
 )
@@ -49,10 +50,10 @@ afferent_params[Afferents.EXTENS_2] = dict(
     n=generator_number_2,
     params=afferents.AfferentsFile.get_nest_spike_times(
         filepath=afferent_filepath,
-        speed=afferents.Speed.FIFTEEN,
-        interval=afferents.Interval.TWENTY,
-        type=afferents.Types.TWO,
-        muscle=afferents.Muscles.EXTENS,
+        speed=stimulation_names.Speed.FIFTEEN,
+        interval=stimulation_names.Interval.TWENTY,
+        type=stimulation_names.NeuronTypes.TWO,
+        muscle=stimulation_names.Muscles.EXTENS,
         number=generator_number_2,
     ),
 )

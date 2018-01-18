@@ -1,25 +1,6 @@
-from enum import Enum
+import spinal_cord.stimulation.data_names as stimulation_names
 import pkg_resources
 from spinal_cord.stimulation.afferents.frequency_generators.list import FrequencyList
-
-
-class Types(Enum):
-    ONE_A = 'Ia'
-    TWO = 'II'
-
-
-class Muscles(Enum):
-    FLEX = "TA"
-    EXTENS = "GM"
-
-
-class Interval(Enum):
-    TWENTY = 20
-
-
-class Speed(Enum):
-    FIFTEEN = 15
-    DEFAULT = ''
 
 
 class AfferentsFile:
@@ -49,20 +30,20 @@ class AfferentsFile:
 def test():
     flex_spikes_list = AfferentsFile.get_nest_spike_times(
         '/stimulation/afferents/data/',
-        Speed.DEFAULT,
-        Interval.TWENTY,
+        stimulation_names.Speed.DEFAULT,
+        stimulation_names.Interval.TWENTY,
         1,
-        Types.ONE_A,
-        Muscles.FLEX
+        stimulation_names.NeuronTypes.ONE_A,
+        stimulation_names.Muscles.FLEX
     )
 
     extens_spikes_list = AfferentsFile.get_nest_spike_times(
         '/stimulation/afferents/data/',
-        Speed.DEFAULT,
-        Interval.TWENTY,
+        stimulation_names.Speed.DEFAULT,
+        stimulation_names.Interval.TWENTY,
         1,
-        Types.ONE_A,
-        Muscles.FLEX
+        stimulation_names.NeuronTypes.ONE_A,
+        stimulation_names.Muscles.FLEX
     )
 
     import pylab
