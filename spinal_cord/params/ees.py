@@ -9,7 +9,8 @@ def generate_spike_times(frequency_hz, how_long_s):
     :return: array of spike times
     """
     how_many = int(frequency_hz * how_long_s)
-    return numpy.linspace(0, how_long_s * 1000, how_many, dtype=numpy.int)
+    start = 1000 // frequency_hz
+    return numpy.linspace(start, how_long_s * 1000, how_many, dtype=numpy.int)
 
 
 ees_params = dict()
@@ -20,5 +21,5 @@ ees_amplitude = 500  # amplitude of ees current in uA. Range of values is (0, 60
 ees_params[EES.EES] = dict(
     model="spike_generator",
     n=1,
-    params={'spike_times': generate_spike_times(ees_frequency, ees_duration)},
+    params={'spike_times': generate_spike_times(ees_frequency, ees_duration).astype(float)},
 )
