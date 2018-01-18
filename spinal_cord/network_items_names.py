@@ -28,3 +28,7 @@ class Multimeters(NetworkItemsNames):
     EXTENS_INTER_2 = "extens-inter2-multimeter"
     FLEX_MOTOR = "flex-motor-multimeter"
     EXTENS_MOTOR = "extens-motor-multimeter"
+
+
+class EES(NetworkItemsNames):
+    EES = "EES"
