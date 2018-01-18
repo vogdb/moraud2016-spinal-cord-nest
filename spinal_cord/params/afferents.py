@@ -1,9 +1,9 @@
-import spinal_cord.afferents as afferents
+import spinal_cord.stimulation.afferents.afferents as afferents
 from spinal_cord.network_items_names import Afferents
 
 afferent_params = dict()
 
-afferent_filepath = "/afferents_data/"
+afferent_filepath = "/stimulation/afferents/data/"
 generator_number_1a = 60
 
 afferent_params[Afferents.FLEX_1A] = dict(

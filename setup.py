@@ -6,5 +6,5 @@ setup(
     description='a putative spinal cord neural network',
     url='https://github.com/vogdb/moraud2016-spinal-cord-nest/',
     license='MIT',
-    package_data={'spinal_cord': ['spinal_cord/afferents_data']}
+    package_data={'spinal_cord': ['spinal_cord/stimulation/afferents/data']}
 )

@@ -1,7 +1,7 @@
+import logging
 import math
 import sys
-import logging
-from spinal_cord.frequency_generators.list_generator import FrequencyListGenerator
+from spinal_cord.stimulation.afferents.frequency_generators.list_generator import FrequencyListGenerator
 
 logger = logging.getLogger(__name__)
 

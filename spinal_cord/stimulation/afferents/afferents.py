@@ -1,6 +1,6 @@
 from enum import Enum
 import pkg_resources
-from spinal_cord.frequency_generators.list import FrequencyList
+from spinal_cord.stimulation.afferents.frequency_generators.list import FrequencyList
 
 
 class Types(Enum):
@@ -48,7 +48,7 @@ class AfferentsFile:
 
 def test():
     flex_spikes_list = AfferentsFile.get_nest_spike_times(
-        '/afferents_data/',
+        '/stimulation/afferents/data/',
         Speed.DEFAULT,
         Interval.TWENTY,
         1,
@@ -57,7 +57,7 @@ def test():
     )
 
     extens_spikes_list = AfferentsFile.get_nest_spike_times(
-        '/afferents_data/',
+        '/stimulation/afferents/data/',
         Speed.DEFAULT,
         Interval.TWENTY,
         1,

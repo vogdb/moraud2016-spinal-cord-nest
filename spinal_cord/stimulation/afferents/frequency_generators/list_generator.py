@@ -1,5 +1,5 @@
 import logging
-from spinal_cord.frequency_generators.list import FrequencyList
+from spinal_cord.stimulation.afferents.frequency_generators.list import FrequencyList
 
 logger = logging.getLogger(__name__)
 
