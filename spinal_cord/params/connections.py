@@ -8,6 +8,11 @@ conn_all_to_all = {
     'rule': 'all_to_all'
 }
 
+syn_spec_afferent_artificial_neuron = {
+    'model': syn_default_model,
+    'delay': 1,
+    'weight': 1  # spike from afferent should generate spike on its artificial representation
+}
 syn_spec_afferent1a_motor = {
     'model': syn_default_model,
     'delay': distr_normal_2,
@@ -40,6 +45,9 @@ syn_spec_inter1a_motor = {
     'weight': -0.0023
 }
 
+conn_spec_afferent_artificial_neuron = {
+    'rule': 'one_to_one'
+}
 conn_spec_afferent1a_motor = conn_all_to_all
 conn_spec_afferent1a_inter1a = {
     'rule': 'fixed_indegree',
@@ -67,10 +75,19 @@ connection_params_list = []
 
 ######## FLEX SOURCES #########
 # source is Afferents.FLEX_1A,
-
 connection_params_list.append(
     dict(
         pre=Afferents.FLEX_1A,
+        post=NeuronGroups.FLEX_AFFERENT_1A,
+        syn_spec=syn_spec_afferent_artificial_neuron,
+        conn_spec=conn_spec_afferent_artificial_neuron,
+    )
+)
+
+# source is NeuronGroups.FLEX_AFFERENT_1A,
+connection_params_list.append(
+    dict(
+        pre=NeuronGroups.FLEX_AFFERENT_1A,
         post=NeuronGroups.FLEX_MOTOR,
         syn_spec=syn_spec_afferent1a_motor,
         conn_spec=conn_spec_afferent1a_motor,
@@ -78,7 +95,7 @@ connection_params_list.append(
 )
 connection_params_list.append(
     dict(
-        pre=Afferents.FLEX_1A,
+        pre=NeuronGroups.FLEX_AFFERENT_1A,
         post=NeuronGroups.FLEX_INTER_1A,
         syn_spec=syn_spec_afferent1a_inter1a,
         conn_spec=conn_spec_afferent1a_inter1a,
@@ -89,6 +106,16 @@ connection_params_list.append(
 connection_params_list.append(
     dict(
         pre=Afferents.FLEX_2,
+        post=NeuronGroups.FLEX_AFFERENT_2,
+        syn_spec=syn_spec_afferent_artificial_neuron,
+        conn_spec=conn_spec_afferent_artificial_neuron,
+    )
+)
+
+# source is NeuronGroups.FLEX_AFFERENT_2,
+connection_params_list.append(
+    dict(
+        pre=NeuronGroups.FLEX_AFFERENT_2,
         post=NeuronGroups.FLEX_INTER_2,
         syn_spec=syn_spec_afferent2_inter2,
         conn_spec=conn_spec_afferent2_inter2,
@@ -96,7 +123,7 @@ connection_params_list.append(
 )
 connection_params_list.append(
     dict(
-        pre=Afferents.FLEX_2,
+        pre=NeuronGroups.FLEX_AFFERENT_2,
         post=NeuronGroups.FLEX_INTER_1A,
         syn_spec=syn_spec_afferent2_inter1a,
         conn_spec=conn_spec_afferent2_inter1a,
@@ -136,6 +163,16 @@ connection_params_list.append(
 connection_params_list.append(
     dict(
         pre=Afferents.EXTENS_1A,
+        post=NeuronGroups.EXTENS_AFFERENT_1A,
+        syn_spec=syn_spec_afferent_artificial_neuron,
+        conn_spec=conn_spec_afferent_artificial_neuron,
+    )
+)
+
+# source is NeuronGroups.EXTENS_AFFERENT_1A,
+connection_params_list.append(
+    dict(
+        pre=NeuronGroups.EXTENS_AFFERENT_1A,
         post=NeuronGroups.EXTENS_MOTOR,
         syn_spec=syn_spec_afferent1a_motor,
         conn_spec=conn_spec_afferent1a_motor,
@@ -143,7 +180,7 @@ connection_params_list.append(
 )
 connection_params_list.append(
     dict(
-        pre=Afferents.EXTENS_1A,
+        pre=NeuronGroups.EXTENS_AFFERENT_1A,
         post=NeuronGroups.EXTENS_INTER_1A,
         syn_spec=syn_spec_afferent1a_inter1a,
         conn_spec=conn_spec_afferent1a_inter1a,
@@ -154,6 +191,16 @@ connection_params_list.append(
 connection_params_list.append(
     dict(
         pre=Afferents.EXTENS_2,
+        post=NeuronGroups.EXTENS_AFFERENT_2,
+        syn_spec=syn_spec_afferent_artificial_neuron,
+        conn_spec=conn_spec_afferent_artificial_neuron,
+    )
+)
+
+# source is NeuronGroups.EXTENS_AFFERENT_2,
+connection_params_list.append(
+    dict(
+        pre=NeuronGroups.EXTENS_AFFERENT_2,
         post=NeuronGroups.EXTENS_INTER_2,
         syn_spec=syn_spec_afferent2_inter2,
         conn_spec=conn_spec_afferent2_inter2,
@@ -161,7 +208,7 @@ connection_params_list.append(
 )
 connection_params_list.append(
     dict(
-        pre=Afferents.EXTENS_2,
+        pre=NeuronGroups.EXTENS_AFFERENT_2,
         post=NeuronGroups.EXTENS_INTER_1A,
         syn_spec=syn_spec_afferent2_inter1a,
         conn_spec=conn_spec_afferent2_inter1a,

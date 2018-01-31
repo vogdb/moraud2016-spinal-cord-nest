@@ -12,6 +12,11 @@ class NeuronGroups(NetworkItemsNames):
     EXTENS_INTER_1A = "Extensor 1A Interneurons"
     FLEX_INTER_2 = "Flexor 2 Interneurons"
     EXTENS_INTER_2 = "Extensor 2 Interneurons"
+    # below are artificial neurons for modelling Afferents stimulation
+    FLEX_AFFERENT_1A = "Flexor 1A artificial fibers"
+    EXTENS_AFFERENT_1A = "Extensor 1A artificial fibers"
+    FLEX_AFFERENT_2 = "Flexor 1A artificial fibers"
+    EXTENS_AFFERENT_2 = "Extensor 1A artificial fibers"
 
 
 class Afferents(NetworkItemsNames):
