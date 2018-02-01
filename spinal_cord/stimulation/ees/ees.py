@@ -4,6 +4,11 @@ import pkg_resources
 
 class EesStimulation:
     @staticmethod
+    def compute_activated_number(amplitude, muscle, neuron_type, number):
+        percent = EesStimulation.compute_activated_percent(amplitude, muscle, neuron_type)
+        return int(round(number * percent))
+
+    @staticmethod
     def compute_activated_percent(amplitude, muscle, neuron_type):
         if amplitude < 0 or amplitude > 600:
             raise ValueError('EES.compute_activated_percent(amplitude) param must be between 600 and 0')
