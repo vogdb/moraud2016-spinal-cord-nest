@@ -1,7 +1,6 @@
 from spinal_cord.network_items_names import NeuronGroups, Afferents, Multimeters, EES
 import spinal_cord.params.ees as ees_params
 from spinal_cord.params.neuron_groups import neuron_group_params
-from spinal_cord.params.afferents import afferent_params
 from spinal_cord.stimulation.ees.ees import EesStimulation
 import spinal_cord.stimulation.data_names as stimulation_names
 
@@ -125,13 +124,13 @@ ees_flex_afferent1a_number = EesStimulation.compute_activated_number(
     ees_params.ees_amplitude,
     stimulation_names.Muscles.FLEX,
     stimulation_names.NeuronTypes.ONE_A,
-    afferent_params[NeuronGroups.FLEX_AFFERENT_1A]['n']
+    neuron_group_params[NeuronGroups.FLEX_AFFERENT_1A]['n']
 )
 ees_extens_afferent1a_number = EesStimulation.compute_activated_number(
     ees_params.ees_amplitude,
     stimulation_names.Muscles.EXTENS,
     stimulation_names.NeuronTypes.ONE_A,
-    afferent_params[NeuronGroups.EXTENS_AFFERENT_1A]['n']
+    neuron_group_params[NeuronGroups.EXTENS_AFFERENT_1A]['n']
 )
 connection_params_list.append(
     dict(
@@ -160,13 +159,13 @@ ees_flex_afferent2_number = EesStimulation.compute_activated_number(
     ees_params.ees_amplitude,
     stimulation_names.Muscles.FLEX,
     stimulation_names.NeuronTypes.TWO,
-    afferent_params[NeuronGroups.FLEX_AFFERENT_2]['n']
+    neuron_group_params[NeuronGroups.FLEX_AFFERENT_2]['n']
 )
 ees_extens_afferent2_number = EesStimulation.compute_activated_number(
     ees_params.ees_amplitude,
     stimulation_names.Muscles.EXTENS,
     stimulation_names.NeuronTypes.TWO,
-    afferent_params[NeuronGroups.EXTENS_AFFERENT_2]['n']
+    neuron_group_params[NeuronGroups.EXTENS_AFFERENT_2]['n']
 )
 connection_params_list.append(
     dict(
