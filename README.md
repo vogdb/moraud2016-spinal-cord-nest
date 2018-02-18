@@ -64,4 +64,5 @@ The topology is good but the real implementation requires more additional neuron
 
 ### Usage
 
-This project was verified on *Python 3.5* and *NEST 2.14.0*. It also uses a custom NEST model [hh_moto_5ht](https://github.com/research-team/hh-moto-5ht).
+This project has been verified on *Python 3.5* and *NEST 2.14.0*. It also uses a custom NEST model [hh_moto_5ht](https://github.com/research-team/hh-moto-5ht).
+To run it please execute `./spinal_cord/run.py`
