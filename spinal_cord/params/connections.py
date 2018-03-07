@@ -102,7 +102,7 @@ connection_params_list.append(
         pre=EES.EES,
         post=NeuronGroups.FLEX_MOTOR,
         syn_spec=syn_spec_ees_motor,
-        conn_spec={'rule': 'fixed_indegree','indegree': ees_flex_motor_number},
+        conn_spec={'rule': 'fixed_outdegree', 'multapses': False, 'outdegree': ees_flex_motor_number},
     )
 )
 connection_params_list.append(
@@ -110,7 +110,7 @@ connection_params_list.append(
         pre=EES.EES,
         post=NeuronGroups.EXTENS_MOTOR,
         syn_spec=syn_spec_ees_motor,
-        conn_spec={'rule': 'fixed_indegree','indegree': ees_extens_motor_number},
+        conn_spec={'rule': 'fixed_outdegree', 'multapses': False, 'outdegree': ees_extens_motor_number},
     )
 )
 
@@ -137,7 +137,7 @@ connection_params_list.append(
         pre=EES.EES,
         post=NeuronGroups.FLEX_AFFERENT_1A,
         syn_spec=syn_spec_ees_afferent1a,
-        conn_spec={'rule': 'fixed_indegree', 'indegree': ees_flex_afferent1a_number}
+        conn_spec={'rule': 'fixed_outdegree', 'multapses': False, 'outdegree': ees_flex_afferent1a_number}
     )
 )
 connection_params_list.append(
@@ -145,7 +145,7 @@ connection_params_list.append(
         pre=EES.EES,
         post=NeuronGroups.EXTENS_AFFERENT_1A,
         syn_spec=syn_spec_ees_afferent1a,
-        conn_spec={'rule': 'fixed_indegree', 'indegree': ees_extens_afferent1a_number}
+        conn_spec={'rule': 'fixed_outdegree', 'multapses': False, 'outdegree': ees_extens_afferent1a_number}
     )
 )
 
@@ -172,7 +172,7 @@ connection_params_list.append(
         pre=EES.EES,
         post=NeuronGroups.FLEX_AFFERENT_2,
         syn_spec=syn_spec_ees_afferent2,
-        conn_spec={'rule': 'fixed_indegree','indegree': ees_flex_afferent2_number}
+        conn_spec={'rule': 'fixed_outdegree', 'multapses': False, 'outdegree': ees_flex_afferent2_number}
     )
 )
 connection_params_list.append(
@@ -180,7 +180,7 @@ connection_params_list.append(
         pre=EES.EES,
         post=NeuronGroups.EXTENS_AFFERENT_2,
         syn_spec=syn_spec_ees_afferent2,
-        conn_spec={'rule': 'fixed_indegree','indegree': ees_extens_afferent2_number}
+        conn_spec={'rule': 'fixed_outdegree', 'multapses': False, 'outdegree': ees_extens_afferent2_number}
     )
 )
 
