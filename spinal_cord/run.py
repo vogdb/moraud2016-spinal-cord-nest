@@ -26,6 +26,7 @@ def plot_neuron_group(flexor_device, extensor_device, group_name):
 
 
 nest.Install("research_team_models")
+nest.Install("neuron_simulator_models")
 
 entity_params = dict()
 entity_params.update(afferent_params)

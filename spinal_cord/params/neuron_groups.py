@@ -61,16 +61,11 @@ neuron_group_params[NeuronGroups.FLEX_MOTOR] = dict(
 )
 
 # Dummy neuron groups for afferents simulation
-# TODO parameters below should be as in Neuron Simulator 'IntFire1' with tau = 0.5, refrac = 1
 afferent_model_params = {
-    'V_m': 0.0,
-    'V_reset': 0.0,
-    'V_th': 1.0,
-    'tau_m': 0.5,
-    'tau_syn_ex': 0.1,
+    'tau': 0.5,
     't_ref': 1.0,
 }
-afferent_model_type = 'iaf_psc_alpha'
+afferent_model_type = 'int_fire1'
 
 neuron_group_params[NeuronGroups.FLEX_AFFERENT_1A] = dict(
     model=afferent_model_type,
