@@ -3,19 +3,15 @@ from spinal_cord.params.afferents import afferent_params
 
 neuron_group_params = dict()
 
-# parameters below are for normalized 'iaf_psc_alpha' as in Neuron Simulator 'IntFire4'
-# that is why V_th=1.0 and V_reset=0.0
 inter_model_params = {
-    'V_m': 0.0,
-    'V_reset': 0.0,
-    'V_th': 1.0,
     'tau_m': 30.0,
     'tau_syn_ex': 0.5,
-    'tau_syn_in': 5.0
-    # 't_ref': 0.0,
+    'tau_syn_in_rise': 5.0,
+    'tau_syn_in_fall': 10.0,
+    't_ref': 1.0,
 }
 inter_model_number = 196
-inter_model_type = 'iaf_psc_alpha'
+inter_model_type = 'int_fire4'
 
 neuron_group_params[NeuronGroups.FLEX_INTER_1A] = dict(
     model=inter_model_type,
@@ -44,7 +40,8 @@ neuron_group_params[NeuronGroups.EXTENS_INTER_2] = dict(
 motor_model_params = {
     'tau_syn_ex': 0.5,
     'tau_syn_in': 1.5,
-    't_ref': 2.0,  # 'tau_m': 2.5
+    't_ref': 2.0,
+    #'g_K_Ca_5ht': 0.4,
 }
 motor_model_number = 169
 motor_model_type = 'hh_moto_5ht'
