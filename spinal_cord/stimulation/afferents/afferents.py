@@ -1,23 +1,29 @@
 import spinal_cord.stimulation.data_names as stimulation_names
 import pkg_resources
-from spinal_cord.stimulation.afferents.frequency_generators.list import FrequencyList
 
 
 class AfferentsFile:
+    MAX_NUM = 60
+
     @staticmethod
-    def get_nest_spike_times(filepath, speed, interval, number, type, muscle):
-        if number <= 0 or number > 60:
-            raise ValueError("AfferentsFile.number must be greater than 0 and less or equal than 60")
+    def get_rate_params(filepath, speed, interval, number, type, muscle):
+        if number <= 0 or number > AfferentsFile.MAX_NUM:
+            raise ValueError(
+                "AfferentsFile.number must be greater than 0 and less or equal than {}".format(AfferentsFile.MAX_NUM)
+            )
 
         with open(AfferentsFile._get_data_file(filepath, type, muscle, speed, interval), "r") as data_file:
             frequencies_list = []
             for line in data_file:
                 frequency_list = [float(frequency) for frequency in line.strip().split()]
-                frequencies_list.append(FrequencyList(interval.value, frequency_list))
+                frequencies_list.append(frequency_list)
                 if len(frequencies_list) >= number:
                     break
-        spike_times_list = [frequency_list.generate_spikes() for frequency_list in frequencies_list]
-        return [{"spike_times": spike_times} for spike_times in spike_times_list]
+        # rate_times must be equal for all records, so calculate them one time only
+        rate_times = [float(time_step) for time_step in
+                      range(0, interval.value * len(frequencies_list[0]), interval.value)]
+
+        return [{'rate_times': rate_times, 'rate_values': frequency_list} for frequency_list in frequencies_list]
 
     @staticmethod
     def _get_data_file(filepath, type, muscle, speed, interval):
@@ -28,30 +34,29 @@ class AfferentsFile:
 
 
 def test():
-    flex_spikes_list = AfferentsFile.get_nest_spike_times(
+    flex_params_list = AfferentsFile.get_rate_params(
         '/stimulation/afferents/data/',
         stimulation_names.Speed.DEFAULT,
         stimulation_names.Interval.TWENTY,
-        1,
+        20,
         stimulation_names.NeuronTypes.ONE_A,
         stimulation_names.Muscles.FLEX
     )
 
-    extens_spikes_list = AfferentsFile.get_nest_spike_times(
+    extens_params_list = AfferentsFile.get_rate_params(
         '/stimulation/afferents/data/',
         stimulation_names.Speed.DEFAULT,
         stimulation_names.Interval.TWENTY,
-        1,
+        20,
         stimulation_names.NeuronTypes.ONE_A,
         stimulation_names.Muscles.FLEX
     )
 
-    import pylab
-    pylab.figure()
-    flex_spikes = flex_spikes_list[0]['spike_times']
-    extens_spikes = extens_spikes_list[0]['spike_times']
-    pylab.plot(flex_spikes, [1] * len(flex_spikes), ".")
-    pylab.plot(extens_spikes, [1.1] * len(extens_spikes), ".")
-    pylab.show()
+    for extens_params in extens_params_list:
+        print(extens_params)
+        assert len(extens_params['rate_times']) == len(extens_params['rate_values'])
+    for flex_params in flex_params_list:
+        print(flex_params)
+        assert len(flex_params['rate_times']) == len(flex_params['rate_values'])
 
 # test()
