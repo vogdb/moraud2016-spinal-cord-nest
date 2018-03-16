@@ -1,4 +1,4 @@
-from spinal_cord.network_items_names import NeuronGroups, Afferents, Multimeters, EES
+from spinal_cord.network_items_names import NeuronGroups, Afferents, Multimeters, EES, SpikeDetectors
 import spinal_cord.params.ees as ees_params
 from spinal_cord.params.neuron_groups import neuron_group_params
 from spinal_cord.stimulation.ees.ees import EesStimulation
@@ -355,6 +355,7 @@ connection_params_list.append(
 )
 
 ########## Devices ########
+#Multimeters
 connection_params_list.append(
     dict(
         pre=Multimeters.FLEX_AFFERENT_1A,
@@ -413,5 +414,73 @@ connection_params_list.append(
     dict(
         pre=Multimeters.EXTENS_MOTOR,
         post=NeuronGroups.EXTENS_MOTOR,
+    )
+)
+
+#SpikeDetectors
+connection_params_list.append(
+    dict(
+        pre=EES.EES,
+        post=SpikeDetectors.EES,
+    )
+)
+connection_params_list.append(
+    dict(
+        pre=NeuronGroups.FLEX_AFFERENT_1A,
+        post=SpikeDetectors.FLEX_AFFERENT_1A,
+    )
+)
+connection_params_list.append(
+    dict(
+        pre=NeuronGroups.EXTENS_AFFERENT_1A,
+        post=SpikeDetectors.EXTENS_AFFERENT_1A,
+    )
+)
+connection_params_list.append(
+    dict(
+        pre=NeuronGroups.FLEX_AFFERENT_2,
+        post=SpikeDetectors.FLEX_AFFERENT_2,
+    )
+)
+connection_params_list.append(
+    dict(
+        pre=NeuronGroups.EXTENS_AFFERENT_2,
+        post=SpikeDetectors.EXTENS_AFFERENT_2,
+    )
+)
+connection_params_list.append(
+    dict(
+        pre=NeuronGroups.FLEX_INTER_1A,
+        post=SpikeDetectors.FLEX_INTER_1A,
+    )
+)
+connection_params_list.append(
+    dict(
+        pre=NeuronGroups.EXTENS_INTER_1A,
+        post=SpikeDetectors.EXTENS_INTER_1A,
+    )
+)
+connection_params_list.append(
+    dict(
+        pre=NeuronGroups.FLEX_INTER_2,
+        post=SpikeDetectors.FLEX_INTER_2,
+    )
+)
+connection_params_list.append(
+    dict(
+        pre=NeuronGroups.EXTENS_INTER_2,
+        post=SpikeDetectors.EXTENS_INTER_2,
+    )
+)
+connection_params_list.append(
+    dict(
+        pre=NeuronGroups.FLEX_MOTOR,
+        post=SpikeDetectors.FLEX_MOTOR,
+    )
+)
+connection_params_list.append(
+    dict(
+        pre=NeuronGroups.EXTENS_MOTOR,
+        post=SpikeDetectors.EXTENS_MOTOR,
     )
 )

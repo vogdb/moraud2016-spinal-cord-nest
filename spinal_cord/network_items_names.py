@@ -39,5 +39,19 @@ class Multimeters(NetworkItemsNames):
     EXTENS_MOTOR = "extens-motor-multimeter"
 
 
+class SpikeDetectors(NetworkItemsNames):
+    EES = "ees-spike-detector"
+    FLEX_AFFERENT_1A = "flex-afferent1A-spike-detector"
+    EXTENS_AFFERENT_1A = "extens-afferent1A-spike-detector"
+    FLEX_AFFERENT_2 = "flex-afferent2-spike-detector"
+    EXTENS_AFFERENT_2 = "extens-afferent2-spike-detector"
+    FLEX_INTER_1A = "flex-inter1A-spike-detector"
+    EXTENS_INTER_1A = "extens-inter1A-spike-detector"
+    FLEX_INTER_2 = "flex-inter2-spike-detector"
+    EXTENS_INTER_2 = "extens-inter2-spike-detector"
+    FLEX_MOTOR = "flex-motor-spike-detector"
+    EXTENS_MOTOR = "extens-motor-spike-detector"
+
+
 class EES(NetworkItemsNames):
     EES = "EES"
