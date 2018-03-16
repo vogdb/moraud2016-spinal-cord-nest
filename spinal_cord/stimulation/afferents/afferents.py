@@ -21,7 +21,7 @@ class AfferentsFile:
                     break
         # rate_times must be equal for all records, so calculate them one time only
         rate_times = [float(time_step) for time_step in
-                      range(0, interval.value * len(frequencies_list[0]), interval.value)]
+                      range(9, interval.value * len(frequencies_list[0]) + 9, interval.value)]
 
         return [{'rate_times': rate_times, 'rate_values': frequency_list} for frequency_list in frequencies_list]
 
