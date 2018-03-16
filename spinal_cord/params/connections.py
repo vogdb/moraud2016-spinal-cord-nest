@@ -357,6 +357,30 @@ connection_params_list.append(
 ########## Devices ########
 connection_params_list.append(
     dict(
+        pre=Multimeters.FLEX_AFFERENT_1A,
+        post=NeuronGroups.FLEX_AFFERENT_1A,
+    )
+)
+connection_params_list.append(
+    dict(
+        pre=Multimeters.EXTENS_AFFERENT_1A,
+        post=NeuronGroups.EXTENS_AFFERENT_1A,
+    )
+)
+connection_params_list.append(
+    dict(
+        pre=Multimeters.FLEX_AFFERENT_2,
+        post=NeuronGroups.FLEX_AFFERENT_2,
+    )
+)
+connection_params_list.append(
+    dict(
+        pre=Multimeters.EXTENS_AFFERENT_2,
+        post=NeuronGroups.EXTENS_AFFERENT_2,
+    )
+)
+connection_params_list.append(
+    dict(
         pre=Multimeters.FLEX_INTER_1A,
         post=NeuronGroups.FLEX_INTER_1A,
     )

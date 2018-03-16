@@ -39,9 +39,11 @@ layer1 = NeuronNetwork(entity_params, connection_params_list)
 
 nest.Simulate(150.)
 
-plotter = ResultsPlotter(3, 'Average "V_m" of neuron groups')
+plotter = ResultsPlotter(5, 'Average "V_m" of neuron groups')
 plotter.reset()
 plot_neuron_group(Multimeters.FLEX_MOTOR, Multimeters.EXTENS_MOTOR, 'Motor')
 plot_neuron_group(Multimeters.FLEX_INTER_2, Multimeters.EXTENS_INTER_2, 'Inter2')
 plot_neuron_group(Multimeters.FLEX_INTER_1A, Multimeters.EXTENS_INTER_1A, 'Inter1A')
+plot_neuron_group(Multimeters.FLEX_AFFERENT_1A, Multimeters.EXTENS_AFFERENT_1A, 'Afferent1A')
+plot_neuron_group(Multimeters.FLEX_AFFERENT_2, Multimeters.EXTENS_AFFERENT_2, 'Afferent2')
 plotter.show()

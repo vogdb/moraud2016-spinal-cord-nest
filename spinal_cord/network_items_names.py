@@ -27,6 +27,10 @@ class Afferents(NetworkItemsNames):
 
 
 class Multimeters(NetworkItemsNames):
+    FLEX_AFFERENT_1A = "flex-afferent1A-multimeter"
+    EXTENS_AFFERENT_1A = "extens-afferent1A-multimeter"
+    FLEX_AFFERENT_2 = "flex-afferent2-multimeter"
+    EXTENS_AFFERENT_2 = "extens-afferent2-multimeter"
     FLEX_INTER_1A = "flex-inter1A-multimeter"
     EXTENS_INTER_1A = "extens-inter1A-multimeter"
     FLEX_INTER_2 = "flex-inter2-multimeter"
