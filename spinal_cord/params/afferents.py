@@ -10,58 +10,50 @@ generator_number_1a = afferents.AfferentsFile.MAX_NUM
 afferent_params[Afferents.FLEX_1A] = dict(
     model="inhomogeneous_poisson_generator",
     n=generator_number_1a,
-    params={
-        'individual_spike_trains': False,  # we don't need this cause we have one recording per generator
-    }.update(afferents.AfferentsFile.get_rate_params(
+    params=afferents.AfferentsFile.get_rate_params(
         filepath=afferent_filepath,
         speed=stimulation_names.Speed.FIFTEEN,
         interval=stimulation_names.Interval.TWENTY,
         type=stimulation_names.NeuronTypes.ONE_A,
         muscle=stimulation_names.Muscles.FLEX,
         number=generator_number_1a,
-    )),
+    ),
 )
 afferent_params[Afferents.EXTENS_1A] = dict(
     model="inhomogeneous_poisson_generator",
     n=generator_number_1a,
-    params={
-        'individual_spike_trains': False,  # we don't need this cause we have one recording per generator
-    }.update(afferents.AfferentsFile.get_rate_params(
+    params=afferents.AfferentsFile.get_rate_params(
         filepath=afferent_filepath,
         speed=stimulation_names.Speed.FIFTEEN,
         interval=stimulation_names.Interval.TWENTY,
         type=stimulation_names.NeuronTypes.ONE_A,
         muscle=stimulation_names.Muscles.EXTENS,
         number=generator_number_1a,
-    )),
+    ),
 )
 
 generator_number_2 = afferents.AfferentsFile.MAX_NUM
 afferent_params[Afferents.FLEX_2] = dict(
     model="inhomogeneous_poisson_generator",
     n=generator_number_2,
-    params={
-        'individual_spike_trains': False,  # we don't need this cause we have one recording per generator
-    }.update(afferents.AfferentsFile.get_rate_params(
+    params=afferents.AfferentsFile.get_rate_params(
         filepath=afferent_filepath,
         speed=stimulation_names.Speed.FIFTEEN,
         interval=stimulation_names.Interval.TWENTY,
         type=stimulation_names.NeuronTypes.TWO,
         muscle=stimulation_names.Muscles.FLEX,
         number=generator_number_2,
-    )),
+    ),
 )
 afferent_params[Afferents.EXTENS_2] = dict(
     model="inhomogeneous_poisson_generator",
     n=generator_number_2,
-    params={
-        'individual_spike_trains': False,  # we don't need this cause we have one recording per generator
-    }.update(afferents.AfferentsFile.get_rate_params(
+    params=afferents.AfferentsFile.get_rate_params(
         filepath=afferent_filepath,
         speed=stimulation_names.Speed.FIFTEEN,
         interval=stimulation_names.Interval.TWENTY,
         type=stimulation_names.NeuronTypes.TWO,
         muscle=stimulation_names.Muscles.EXTENS,
         number=generator_number_2,
-    )),
+    ),
 )
