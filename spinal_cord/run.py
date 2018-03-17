@@ -1,19 +1,20 @@
 import nest
+import pylab
 
 import definitions
 from spinal_cord import device_data
 from spinal_cord import util
-from spinal_cord.network_items_names import Multimeters
+from spinal_cord.network_items_names import Multimeters, SpikeDetectors
 from spinal_cord.neuron_network import NeuronNetwork
 from spinal_cord.params.afferents import afferent_params
 from spinal_cord.params.connections import connection_params_list
 from spinal_cord.params.devices import device_params
 from spinal_cord.params.neuron_groups import neuron_group_params
 from spinal_cord.params.ees import ees_params
-from spinal_cord.results_plotter import ResultsPlotter
+from spinal_cord.multimeter_plot import MultimeterPlot
 
 
-def plot_neuron_group(flexor_device, extensor_device, group_name):
+def plot_multimeter(flexor_device, extensor_device, group_name):
     flexor_motor_data = device_data.get_average_voltage(
         flexor_device,
         definitions.RESULTS_DIR
@@ -22,7 +23,7 @@ def plot_neuron_group(flexor_device, extensor_device, group_name):
         extensor_device,
         definitions.RESULTS_DIR
     )
-    plotter.subplot(flexor_motor_data, extensor_motor_data, group_name)
+    multimeter_plot.subplot(flexor_motor_data, extensor_motor_data, group_name)
 
 
 nest.Install("research_team_models")
@@ -39,11 +40,12 @@ layer1 = NeuronNetwork(entity_params, connection_params_list)
 
 nest.Simulate(150.)
 
-plotter = ResultsPlotter(5, 'Average "V_m" of neuron groups')
-plotter.reset()
-plot_neuron_group(Multimeters.FLEX_MOTOR, Multimeters.EXTENS_MOTOR, 'Motor')
-plot_neuron_group(Multimeters.FLEX_INTER_2, Multimeters.EXTENS_INTER_2, 'Inter2')
-plot_neuron_group(Multimeters.FLEX_INTER_1A, Multimeters.EXTENS_INTER_1A, 'Inter1A')
-plot_neuron_group(Multimeters.FLEX_AFFERENT_1A, Multimeters.EXTENS_AFFERENT_1A, 'Afferent1A')
-plot_neuron_group(Multimeters.FLEX_AFFERENT_2, Multimeters.EXTENS_AFFERENT_2, 'Afferent2')
-plotter.show()
+multimeter_plot = MultimeterPlot(5, 'Average "V_m" of neuron groups')
+multimeter_plot.reset()
+plot_multimeter(Multimeters.FLEX_MOTOR, Multimeters.EXTENS_MOTOR, 'Motor')
+plot_multimeter(Multimeters.FLEX_INTER_2, Multimeters.EXTENS_INTER_2, 'Inter2')
+plot_multimeter(Multimeters.FLEX_INTER_1A, Multimeters.EXTENS_INTER_1A, 'Inter1A')
+plot_multimeter(Multimeters.FLEX_AFFERENT_1A, Multimeters.EXTENS_AFFERENT_1A, 'Afferent1A')
+plot_multimeter(Multimeters.FLEX_AFFERENT_2, Multimeters.EXTENS_AFFERENT_2, 'Afferent2')
+
+pylab.show()
