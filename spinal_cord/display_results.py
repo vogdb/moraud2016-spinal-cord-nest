@@ -32,6 +32,8 @@ def plot_spike_detector(flexor_device, extensor_device, group_name, group_num):
         extensor_device,
         definitions.RESULTS_DIR
     )
+    # this offset trick is to display both neuron groups side by side
+    # without this offset they would be displayed far away from each other cause of their neuron_id by Y axis
     id_offset = 0
     if len(flexor_data['neuron_id']) > 0:
         id_offset = flexor_data['neuron_id'][0] - extensor_data['neuron_id'][0] + group_num
