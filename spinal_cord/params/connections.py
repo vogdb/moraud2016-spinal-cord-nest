@@ -15,7 +15,7 @@ conn_all_to_all = {
 syn_spec_afferent_artificial_neuron = {
     'model': syn_default_model,
     'delay': 1,
-    'weight': 1  # spike from afferent should generate spike on its artificial representation
+    'weight': 10  # spike from afferent should generate spike on its artificial representation
 }
 syn_spec_afferent1a_motor = {
     'model': syn_default_model,
