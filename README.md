@@ -64,5 +64,8 @@ The topology is good but the real implementation requires more additional neuron
 
 ### Usage
 
-This project has been verified on *Python 3.5* and *NEST 2.14.0*. It also uses a custom NEST model [hh_moto_5ht](https://github.com/research-team/hh-moto-5ht).
+This project has been verified on *Python 3.5* and [NEST@d3d8630](https://github.com/nest/nest-simulator/commit/d3d8630156a2e9e3906afd6ede67af5ea83a4f9b). It also uses custom NEST models [hh_moto_5ht](https://github.com/research-team/hh-moto-5ht), [int_fire1/4](https://github.com/vogdb/neuron-intfire-nestml).
 To run it please execute `./spinal_cord/run.py`
+
+### Current status
+The project doesn't function as expected. However all migrations from Neuron have been performed. Bugs are somewhere! :'(
