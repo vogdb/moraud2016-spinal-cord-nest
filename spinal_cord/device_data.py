@@ -1,21 +1,22 @@
 import os
 from collections import OrderedDict
 
-class DeviceData:
+
+class MultimeterData:
     """
     format of _items: dict(<simulation_time>: dict(<neuron_id>: <list of recorder values>))
     """
 
-    def __init__(self, data_name_list) -> None:
+    def __init__(self, recorded_params) -> None:
         self._items = OrderedDict()
-        self._data_name_list = data_name_list
+        self._recorded_params = recorded_params
 
     def add_item(self, time, neuron_id, value_list):
         if not self.has_item(time):
             self.create_item(time)
         item = self.get_item(time)
         if neuron_id in item:
-            raise ValueError("DeviceData data item " + time + " already has neuron_id " + neuron_id)
+            raise ValueError("MultimeterData data item " + time + " already has neuron_id " + neuron_id)
         item[neuron_id] = value_list
 
     def has_item(self, time):
@@ -44,7 +45,7 @@ class DeviceData:
 
     def filter_items_for_value(self, value_name, items=None):
         result = OrderedDict()
-        data_index = self._data_name_list.index(value_name)
+        data_index = self._recorded_params.index(value_name)
         if data_index is not None:
             if items is None:
                 items = self._items
@@ -62,15 +63,20 @@ class DeviceData:
         return result
 
 
-def extract_device_data(device_name, value_names, storage_dir):
+def get_device_filepath(device_name, storage_dir):
     device_filepath = None
     for file in os.listdir(storage_dir):
         if file.startswith(device_name.value):
             device_filepath = storage_dir + '/' + file
             break
+    return device_filepath
+
+
+def extract_multimeter_data(device_name, recorded_params, storage_dir):
+    device_filepath = get_device_filepath(device_name, storage_dir)
 
     if device_filepath is not None:
-        data = DeviceData(value_names)
+        data = MultimeterData(recorded_params)
         with open(device_filepath) as device_file:
             for line in device_file:
                 line = line.split()
@@ -82,8 +88,24 @@ def extract_device_data(device_name, value_names, storage_dir):
     return None
 
 
+def extract_spike_detector_data(device_name, storage_dir):
+    device_filepath = get_device_filepath(device_name, storage_dir)
+    if device_filepath is not None:
+        data = {'timestamp': [], 'neuron_id': []}
+        with open(device_filepath) as device_file:
+            for line in device_file:
+                line = line.split()
+                time = float(line[1])
+                neuron_id = int(line[0])
+                data['timestamp'].append(time)
+                data['neuron_id'].append(neuron_id)
+        return data
+    return None
+
+
+
 def get_average_voltage(device_name, storage_dir):
-    data = extract_device_data(
+    data = extract_multimeter_data(
         device_name,
         ['V_m'],
         storage_dir
