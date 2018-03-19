@@ -68,4 +68,10 @@ This project has been verified on *Python 3.5* and [NEST@d3d8630](https://github
 To run it please execute `./spinal_cord/run.py`
 
 ### Current status
-The project doesn't function as expected. However all migrations from Neuron have been performed. Bugs are somewhere! :'(
+As you can see Motor Neurons don't spike hence the project doesn't function as expected. However all migrations from Neuron have been performed. Bugs are somewhere! :'(
+
+##### Spike plots
+<img src="/diagrams/spikes.svg" alt="Spikes" height=400/>
+
+##### Membrane potential of neuron groups
+<img src="/diagrams/V_m.svg" alt="Spikes" height=400/>
